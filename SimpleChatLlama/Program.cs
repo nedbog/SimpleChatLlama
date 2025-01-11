@@ -9,6 +9,15 @@ builder.Services.AddChatClient(new OllamaChatClient(new Uri("http://localhost:11
 
 var app = builder.Build();
 
+Console.WriteLine("This is a simple chat client application which needs ollama with llama3 model");
+Console.WriteLine("-----------------------------------------------------------------------------");
+
+var readMePath = Path.Join(AppContext.BaseDirectory, "README.md");
+var readMeText = File.ReadAllText(readMePath);
+
+Console.WriteLine(readMeText);
+Console.WriteLine("-----------------------------------------------------------------------------");
+
 var chatClient = app.Services.GetRequiredService<IChatClient>();
 
 var chatHistory = new List<ChatMessage>();
